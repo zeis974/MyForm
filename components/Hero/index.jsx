@@ -3,6 +3,7 @@ import style from "../../styles/Hero.module.css";
 import SearchIllustration from "../svg/SearchIllustration";
 import HeroIllustration from "../svg/HeroIllustration";
 import FormIcons from "../svg/FormIcons";
+import Link from "next/link";
 
 export default function Hero() {
  return (
@@ -15,12 +16,16 @@ export default function Hero() {
      aliquid.
     </p>
     <div className={style.hero__buttons}>
-     <a href="/fiches">Les fiches</a>
+     <Link href="/fiches">
+      <a>Les fiches</a>
+     </Link>
      <div>
       <SearchIllustration />
-      <a href="/faq">
-       <span>MyForm c&apos;est quoi ? </span>
-      </a>
+      <Link href="/faq">
+       <a>
+        <span>MyForm c&apos;est quoi ? </span>
+       </a>
+      </Link>
      </div>
     </div>
     <div className={style.hero__stats}>
