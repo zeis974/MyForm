@@ -1,0 +1,51 @@
+.container {
+ max-width: var(--maxWidth);
+ margin: 0 auto;
+}
+
+.container .container__hero {
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
+
+ margin-bottom: 20px;
+}
+
+.container__title {
+ font-family: "Rowdies", sans-serif;
+ font-size: 3.5em;
+ text-transform: uppercase;
+ color: white;
+}
+
+.container__p {
+ max-width: 500px;
+ padding: 20px 0;
+ margin-left: 5px;
+}
+
+.container__navbar {
+ width: 100%;
+ height: 60px;
+ background: white;
+ border: 1px solid rgb(160, 160, 160);
+ border-radius: 8px;
+}
+
+.container__card {
+ width: 1260px;
+ display: flex;
+ column-count: 4;
+ margin-bottom: 20px;
+ padding-top: 30px;
+ row-gap: 4;
+}
+
+.container__card div {
+ padding: 5px;
+ margin-right: 5px;
+ border: 1px solid rgb(160, 160, 160);
+ background: white;
+ border-radius: 8px;
+ min-width: calc(1260px / 4 - 0.5em);
+}

@@ -3,7 +3,7 @@
  max-width: var(--maxWidth);
  display: flex;
  justify-content: space-evenly;
- padding: 100px 0;
+ padding-top: 100px;
  margin: 0 auto;
 }
 
@@ -70,4 +70,13 @@
  margin: 5px;
  width: calc(100% / 3);
  height: 100px;
+}
+
+.hero__stats > div span {
+ font-weight: 500;
+}
+
+.hero__stats > div span:first-of-type {
+ font-family: "Rowdies", sans-serif;
+ font-size: 1.2em;
 }

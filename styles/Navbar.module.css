@@ -11,7 +11,7 @@
 .nav__logo {
  font-size: 2em;
  color: white;
- font-family: Rowdies;
+ font-family: "Rowdies";
 }
 
 .nav__links ul {
@@ -40,7 +40,6 @@
 .nav__links a::before {
  content: "";
  display: none;
- /* show by default */
 }
 
 .nav__featureBtn a {
