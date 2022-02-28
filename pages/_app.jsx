@@ -1,18 +1,14 @@
 import "../styles/globals.css";
-import Head from "next/head";
 
-import { Navbar } from "../components";
+import { AppProvider } from "../context/AppContext";
+import Layout from "../components/Layout/index"; // import default file
 
-export default function MyApp({ Component, pageProps }) {
+export default function MyForm({ Component, pageProps }) {
  return (
-  <>
-   <Head>
-    <title>MyForm</title>
-   </Head>
-   <>
-    <Navbar />
+  <AppProvider>
+   <Layout>
     <Component {...pageProps} />
-   </>
-  </>
+   </Layout>
+  </AppProvider>
  );
 }
