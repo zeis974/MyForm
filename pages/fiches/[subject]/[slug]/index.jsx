@@ -64,6 +64,6 @@ export const getStaticPaths = () => {
 
  return {
   paths,
-  fallback: false,
+  fallback: "blocking",
  };
 };
