@@ -34,7 +34,11 @@ export default function Form(props) {
       }
      })
      .map((post) => (
-      <Link href={`/fiches/${props.subject}/${post.slug}`} key={post.slug}>
+      <Link
+       href={`/fiches/${props.subject}/${post.slug}`}
+       prefetch={false}
+       key={post.slug}
+      >
        <a>
         <div key={post.slug}>
          <h2 className="text-2xl font-bold mb-4">{post.title}</h2>

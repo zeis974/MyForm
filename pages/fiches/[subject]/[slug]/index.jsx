@@ -13,8 +13,7 @@ const components = {
 };
 
 export default function PostPage({ source, frontMatter }) {
- const { setPrerequisites, setStacks, subject } = AppContext();
-
+ const { setPrerequisites, setStacks } = AppContext();
  useEffect(() => {
   setPrerequisites(frontMatter.prerequisites);
   setStacks(frontMatter.stacks);
@@ -29,11 +28,8 @@ export default function PostPage({ source, frontMatter }) {
   <div>
    <article className="prose prose-green">
     <div className="mb-4"></div>
-
     <h1>{frontMatter.title}</h1>
-
     <p>{frontMatter.description}</p>
-
     <MDXRemote components={components} {...source} />
    </article>
   </div>
@@ -53,17 +49,17 @@ export const getStaticProps = async (context) => {
 };
 
 export const getStaticPaths = () => {
- const posts = getAllPosts(["slug"]);
+ const posts = getAllPosts(["slug", "subject"]);
 
  const paths = posts.map((post) => ({
   params: {
-   subject: "maths",
+   subject: post.subject.toLowerCase(),
    slug: post.slug,
   },
  }));
 
  return {
   paths,
-  fallback: "blocking",
+  fallback: false,
  };
 };
