@@ -29,7 +29,7 @@ export const getStaticProps = async () => {
 
 export async function getStaticPaths(subject) {
  return {
-  paths: ["/fiches/maths", { params: { subject: subject.toString() } }],
+  paths: [{ params: { subject: subject.toString() } }],
   fallback: true,
  };
 }
