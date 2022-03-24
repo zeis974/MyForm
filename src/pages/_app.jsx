@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 
-import { AppProvider } from "../context/AppContext";
-import Layout from "../components/Layout/index"; // import default file
+import { AppProvider } from "@/context/AppContext";
+import Layout from "@/components/Layout";
 
 export default function MyForm({ Component, pageProps }) {
  return (

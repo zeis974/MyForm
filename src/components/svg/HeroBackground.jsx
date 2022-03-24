@@ -29,7 +29,7 @@ export default function HeroBackground() {
      </linearGradient>
     </defs>
    </svg>
-   <style jsx>
+   <style jsx="true">
     {`
      .heroBackground {
       position: absolute;

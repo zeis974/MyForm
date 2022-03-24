@@ -80,3 +80,12 @@
  font-family: "Rowdies", sans-serif;
  font-size: 1.2em;
 }
+
+/* Responsive */
+
+@media screen and (max-width: 376px) {
+ .hero {
+  display: flex;
+  flex-direction: column;
+ }
+}

@@ -2,9 +2,9 @@ import style from "../../styles/Hero.module.css";
 
 import Link from "next/link";
 
-import SearchIllustration from "../svg/SearchIllustration";
-import HeroIllustration from "../svg/HeroIllustration";
-import FormIcons from "../svg/FormIcons";
+import SearchIllustration from "@/components/svg/SearchIllustration";
+import HeroIllustration from "@/components/svg/HeroIllustration";
+import FormIcons from "@/components/svg/FormIcons";
 
 export default function Hero() {
  return (

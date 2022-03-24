@@ -1,4 +1,4 @@
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "@/context/AppContext";
 
 export default function Stacks() {
  const stacks = AppContext().stacks;

@@ -13,7 +13,7 @@ export default function Line({ hover }) {
      pathLength="1"
     />
    </svg>
-   <style jsx>
+   <style jsx="true">
     {`
      #line {
       position: absolute;

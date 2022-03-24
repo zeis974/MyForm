@@ -1,5 +1,7 @@
 import Head from "next/head";
-import { HeroBackground, Navbar } from "@/components";
+
+import HeroBackground from "@/components/svg/HeroBackground";
+import Navbar from "@/components/Navbar";
 
 export default function Layout({ children }) {
  return (

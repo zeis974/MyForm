@@ -1,18 +1,17 @@
 import style from "../../styles/Navbar.module.css";
 
 import Link from "next/link";
-import CustomLink from "../CustomLink";
+
+import CustomLink from "@/components/CustomLink";
 
 export default function Navbar() {
  return (
   <nav className={style.nav}>
-   <div>
+   <span>
     <Link href="/">
-     <a>
-      <span className={style.nav__logo}>MyForm</span>
-     </a>
+     <a className={style.nav__logo}>MyForm</a>
     </Link>
-   </div>
+   </span>
    <div className={style.nav__links}>
     <ul>
      <li>
@@ -32,6 +31,7 @@ export default function Navbar() {
    <div className={style.nav__featureBtn}>
     <a href="/fiches">Les fiches</a>
    </div>
+   <button className={style.nav__menu}></button>
   </nav>
  );
 }

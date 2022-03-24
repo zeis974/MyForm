@@ -15,7 +15,7 @@ export function AppProvider({ children }) {
   const subjectArr = ["maths", "physique", "i2d"];
 
   for (let i = 0; i < subjectArr.length; i++) {
-   var path = query.includes(subjectArr[i]);
+   let path = query.includes(subjectArr[i]);
 
    if (path) {
     setSubject(subjectArr[i]);

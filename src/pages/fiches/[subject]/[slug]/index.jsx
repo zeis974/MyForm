@@ -1,8 +1,8 @@
 import { serialize } from "next-mdx-remote/serialize";
 import { useEffect } from "react";
 import { MDXRemote } from "next-mdx-remote";
-import { AppContext } from "../../../../context/AppContext";
-import { getPost, getAllPosts } from "../../../../utils/mdxUtils";
+import { AppContext } from "@/context/AppContext";
+import { getPost, getAllPosts } from "@/utils/mdxUtils";
 
 import Prerequisites from "@/components/Prerequisites";
 import Stacks from "@/components/Stacks";

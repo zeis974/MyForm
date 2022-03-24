@@ -1,7 +1,8 @@
-import { AppContext } from "context/AppContext";
-import Link from "next/link";
 import style from "../../styles/Form.module.css";
 
+import Link from "next/link";
+
+import { AppContext } from "src/context/AppContext";
 import MathsIllustration from "../svg/MathsIlllustration";
 
 export default function Form(props) {
