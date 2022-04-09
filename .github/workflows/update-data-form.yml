@@ -9,6 +9,6 @@ jobs:
    - name: Check out repository code
      uses: actions/checkout@v3
    - name: Run script file
-   - run: |
+     run: |
       # run script
       "${GITHUB_WORKSPACE}/.github/scripts/file_count.sh"
