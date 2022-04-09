@@ -1,0 +1,14 @@
+name: Update Data Form
+on: [push, pull_request]
+
+jobs:
+ build:
+  runs-on: ubuntu-latest
+  steps:
+   - run: echo "The job was automatically triggered by a ${{ github.event_name }} event."
+   - name: Check out repository code
+        uses: actions/checkout@v3
+   - name: Run script file
+   - run: | 
+      # run script
+      "${GITHUB_WORKSPACE}/.github/scripts/file_count.sh"
