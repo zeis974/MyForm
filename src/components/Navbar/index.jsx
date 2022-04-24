@@ -29,6 +29,17 @@ export default function Navbar() {
   };
  }, [router]);
 
+ /* Detect swipe */
+ useEffect(() => {
+  try {
+   if (handleGesture.direction === "left") {
+    setOpen(true);
+   } else setOpen(false);
+  } catch (e) {
+   return undefined;
+  }
+ }, [handleGesture]);
+
  /* Handle detection of device on resize */
  useEffect(() => {
   const debouncedHandleResize = debounce(function handleResize() {

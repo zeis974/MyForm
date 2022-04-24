@@ -1,9 +1,36 @@
 import Head from "next/head";
+import { useState } from "react";
 
 import HeroBackground from "@/components/svg/HeroBackground";
 import Navbar from "@/components/Navbar";
+import { AppContext } from "@/context/AppContext";
 
 export default function Layout({ children }) {
+ const [touchStart, setTouchStart] = useState(null);
+ const [touchEnd, setTouchEnd] = useState(null);
+ const { setHandleGesture } = AppContext();
+
+ /* The required distance between touchStart and touchEnd to be detected as a swipe */
+ const minSwipeDistance = 50;
+
+ const onTouchStart = (e) => {
+  setTouchEnd(
+   null
+  ); /* Otherwise the swipe is fired even with usual touch events */
+  setTouchStart(e.targetTouches[0].clientX);
+ };
+
+ const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+
+ const onTouchEnd = () => {
+  if (!touchStart || !touchEnd) return;
+  const distance = touchStart - touchEnd;
+  const isLeftSwipe = distance > minSwipeDistance;
+  const isRightSwipe = distance < -minSwipeDistance;
+  if (isLeftSwipe || isRightSwipe)
+   setHandleGesture({ direction: isLeftSwipe ? "left" : "right" });
+ };
+
  return (
   <>
    <Head>
@@ -24,7 +51,13 @@ export default function Layout({ children }) {
    </Head>
    <Navbar />
    <HeroBackground />
-   <main>{children}</main>
+   <main
+    onTouchStart={onTouchStart}
+    onTouchMove={onTouchMove}
+    onTouchEnd={onTouchEnd}
+   >
+    {children}
+   </main>
   </>
  );
 }
