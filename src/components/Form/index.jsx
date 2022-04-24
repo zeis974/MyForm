@@ -1,15 +1,35 @@
-import style from "../../styles/Form.module.css";
+import style from "@/styles/Form.module.css";
 
 import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/router";
 
-import { AppContext } from "src/context/AppContext";
-import MathsIllustration from "../svg/MathsIlllustration";
+import Illustration from "@/components/svg/Illustrations";
 import Tags from "@/components/Tags";
 import FormSearch from "@/components/FormSearch";
 
 export default function Form(props) {
- const { subject } = AppContext();
  const data = props.posts;
+ const router = useRouter();
+ const { subject } = router.query;
+ const [search, setSearch] = useState({
+  field: "",
+  tags: "",
+ });
+
+ const handleSearchField = (data) => {
+  setSearch({
+   field: data,
+   tags: search.tags,
+  });
+ };
+
+ const handleSearchTags = (data) => {
+  setSearch({
+   field: search.field,
+   tags: data,
+  });
+ };
 
  return (
   <div className={style.container}>
@@ -17,45 +37,48 @@ export default function Form(props) {
     <div>
      <span className={style.container__title}>{props.subject}</span>
      <p className={style.container__p}>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore, ducimus.
-      Qui saepe delectus a inventore assumenda. Porro sunt, animi sit
-      necessitatibus suscipit numquam dolorum, commodi illum dolores facilis
-      tempore dolore!
+      Des fiches sur tous les cours de {subject}, chaque fiche possède des
+      exercices corrigés et détaillés pour vous permettre de progresser
      </p>
     </div>
-    <div>
-     <MathsIllustration />
+    <div className={style.container__illustration}>
+     <Illustration subject={subject} />
     </div>
    </div>
-   <div className={style.container__navbar}></div>
-
+   <div className={style.container__navbar}>
     <FormSearch
      placeholder="Rechercher"
      handleSearchField={handleSearchField}
      handleSearchTags={handleSearchTags}
     />
+   </div>
    <section className={style.container__card}>
     {data
      .filter((data) => {
-      if (data.subject.toLowerCase() === subject) {
+      if (search.tags) {
+       if (
+        data.subject.toLowerCase() === subject &&
+        data.title.toLowerCase().includes(search.field.toLowerCase()) &&
+        data.tags.includes("spécialité") == true
+       ) {
+        return data;
+       }
+      } else if (
+       data.subject.toLowerCase() === subject &&
+       data.title.toLowerCase().includes(search.field.toLowerCase())
+      ) {
        return data;
       }
      })
      .map((post) => (
-      <Link
-       href={`/fiches/${props.subject}/${post.slug}`}
-       prefetch={false}
-       key={post.slug}
-      >
-       <a>
-        <div key={post.slug}>
-         <h2 className="text-2xl font-bold mb-4">{post.title}</h2>
-         <p>{post.description}</p>
-         {post.date}
-        </div>
-       </a>
-      </Link>
+      <div key={post.slug} className={style.card}>
+       <Link href={`/fiches/${props.subject}/${post.slug}`} prefetch={false}>
+        <a>
+         <h2>{post.title}</h2>
+        </a>
+       </Link>
        <Tags tags={post.tags} />
+      </div>
      ))}
    </section>
   </div>
