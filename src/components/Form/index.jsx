@@ -5,6 +5,7 @@ import Link from "next/link";
 import { AppContext } from "src/context/AppContext";
 import MathsIllustration from "../svg/MathsIlllustration";
 import Tags from "@/components/Tags";
+import FormSearch from "@/components/FormSearch";
 
 export default function Form(props) {
  const { subject } = AppContext();
@@ -28,6 +29,11 @@ export default function Form(props) {
    </div>
    <div className={style.container__navbar}></div>
 
+    <FormSearch
+     placeholder="Rechercher"
+     handleSearchField={handleSearchField}
+     handleSearchTags={handleSearchTags}
+    />
    <section className={style.container__card}>
     {data
      .filter((data) => {
