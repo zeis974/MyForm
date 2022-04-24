@@ -1,4 +1,4 @@
-import style from "../../styles/Exercises.module.css";
+import style from "@/styles/Exercises.module.css";
 
 export default function Exercises() {
  return (

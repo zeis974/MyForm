@@ -1,38 +1,25 @@
+import style from "@/styles/FormPage.module.css";
+
 import { serialize } from "next-mdx-remote/serialize";
-import { useEffect } from "react";
 import { MDXRemote } from "next-mdx-remote";
-import { AppContext } from "@/context/AppContext";
+
 import { getPost, getAllPosts } from "@/utils/mdxUtils";
 
-import Prerequisites from "@/components/Prerequisites";
-import Stacks from "@/components/Stacks";
+import FormHeader from "@/components/FormHeader";
 
 const components = {
- Prerequisites,
- Stacks,
+ FormHeader,
 };
 
-export default function PostPage({ source, frontMatter }) {
- const { setPrerequisites, setStacks } = AppContext();
- useEffect(() => {
-  setPrerequisites(frontMatter.prerequisites);
-  setStacks(frontMatter.stacks);
- }, [
-  setPrerequisites,
-  setStacks,
-  frontMatter.prerequisites,
-  frontMatter.stacks,
- ]);
-
+export default function FormPage({ source, frontMatter }) {
  return (
-  <div>
-   <article className="prose prose-green">
-    <div className="mb-4"></div>
+  <article className={style.container}>
+   <div className={style.container__header}>
     <h1>{frontMatter.title}</h1>
     <p>{frontMatter.description}</p>
-    <MDXRemote components={components} {...source} />
-   </article>
-  </div>
+   </div>
+   <MDXRemote components={components} {...source} />
+  </article>
  );
 }
 
