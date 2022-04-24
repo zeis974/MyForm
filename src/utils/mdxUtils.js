@@ -2,7 +2,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import { join } from "path";
 
-const POSTS_PATH = join(process.cwd(), "src/_forms");
+const POSTS_PATH = join(process.cwd(), "_forms");
 
 function getPostsFilePaths() {
  return fs.readdirSync(POSTS_PATH).filter((path) => /\.mdx?$/.test(path));
