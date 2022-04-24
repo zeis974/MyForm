@@ -88,7 +88,7 @@ export default function SearchIllustration() {
     </defs>
    </svg>
 
-   <style jsx="true">
+   <style jsx>
     {`
      #circle-middle {
       animation: 1.5s spread infinite;
