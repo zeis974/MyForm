@@ -16,7 +16,7 @@ export default function Hero() {
    setData(data);
   };
   fetchData();
- });
+ }, []);
 
  return (
   <div className={style.hero}>
