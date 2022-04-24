@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { AppContext } from "src/context/AppContext";
 import MathsIllustration from "../svg/MathsIlllustration";
+import Tags from "@/components/Tags";
 
 export default function Form(props) {
  const { subject } = AppContext();
@@ -48,6 +49,7 @@ export default function Form(props) {
         </div>
        </a>
       </Link>
+       <Tags tags={post.tags} />
      ))}
    </section>
   </div>
