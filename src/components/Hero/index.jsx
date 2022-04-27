@@ -1,13 +1,14 @@
 import style from "@/styles/Hero.module.css";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+/* import { useEffect, useState } from "react";*/
 
 import SearchIllustration from "@/components/svg/SearchIllustration";
 import HeroIllustration from "@/components/svg/HeroIllustration";
 
 export default function Hero() {
- const [data, setData] = useState({});
+ {
+  /* const [data, setData] = useState({});
 
  useEffect(() => {
   const fetchData = async () => {
@@ -16,7 +17,8 @@ export default function Hero() {
    setData(data);
   };
   fetchData();
- }, []);
+ }, []); */
+ }
 
  return (
   <div className={style.hero}>
@@ -38,15 +40,15 @@ export default function Hero() {
     </div>
     <div className={style.hero__stats}>
      <div>
-      <span>{data.materials}</span>
+      <span>NaN</span>
       <span>Matières</span>
      </div>
      <div>
-      <span>{data.forms}</span>
+      <span>NaN</span>
       <span>Fiches</span>
      </div>
      <div>
-      <span>{data.exercises}</span>
+      <span>NaN</span>
       <span>Exercices</span>
      </div>
     </div>
