@@ -3,7 +3,7 @@ export default function HeroBackground() {
   <div className="heroBackground">
    <svg
     width="100%"
-    height="100%"
+    height="99.4%"
     viewBox="0 0 5436 6677"
     fill="none"
     preserveAspectRatio="none"
@@ -29,7 +29,7 @@ export default function HeroBackground() {
      </linearGradient>
     </defs>
    </svg>
-   <style jsx="true">
+   <style jsx>
     {`
      .heroBackground {
       position: absolute;

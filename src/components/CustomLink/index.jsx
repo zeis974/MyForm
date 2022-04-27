@@ -6,7 +6,7 @@ import Line from "../svg/Line";
 export default function CustomLink(props) {
  const [hover, setHover] = useState(false);
  return (
-  <Link href={"/" + props.path}>
+  <Link href={`/${props.path}`}>
    <a onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
     {props.text}
     <Line hover={hover} />

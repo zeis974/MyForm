@@ -3,6 +3,7 @@
  height: 70px;
  max-width: var(--maxWidth);
  margin: 0 auto;
+ padding: 10px;
  display: flex;
  align-items: center;
  justify-content: space-between;
@@ -20,7 +21,7 @@
 
 .nav__links a {
  color: white;
- padding: 0 10px;
+ margin: 0 10px;
  font-weight: 500;
 
  position: relative;
@@ -50,15 +51,17 @@
  border-radius: 8px;
 }
 
-.nav__menu {
- width: 60px;
- height: 60px;
- background: white;
- border-radius: 50%;
+.icons__close {
+ margin: 0 10px;
+}
 
- pointer-events: none;
- visibility: hidden;
- display: none;
+/* Intersect */
+
+.intersect {
+ width: 90%;
+ height: 2px;
+ margin: 0 auto;
+ background: #e1e1e1;
 }
 
 /* Responsive */
@@ -68,9 +71,25 @@
   padding: 10px;
  }
 
+ .nav__links {
+  z-index: 3;
+ }
+
  .nav__links ul {
-  display: inherit;
+  padding-top: 50px;
   flex-direction: column;
+  height: 100vh;
+ }
+
+ .nav__links ul li {
+  background-color: #3498db;
+  padding: 15px;
+  margin: 5px;
+  border-radius: 5px;
+ }
+
+ .nav__links ul li a {
+  display: block;
  }
 
  .nav__featureBtn {
@@ -79,9 +98,74 @@
   display: none;
  }
 
- .nav__menu {
-  pointer-events: all;
-  visibility: visible;
-  display: block;
+ .nav__button {
+  width: 60px;
+  height: 60px;
+  background: transparent;
+  border: none;
+ }
+
+ .nav__button[data-open="true"]::before {
+  content: "";
+  position: absolute;
+  background: #0f0e0e8c;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 2;
+ }
+
+ .nav__button:not([data-type="close"]) + .nav__links {
+  position: fixed;
+  top: 0;
+  right: 0;
+  border-radius: 10px 0 0 10px;
+  width: 300px;
+  height: 100%;
+  background: white;
+  transform: translateX(300px);
+ }
+
+ .nav__links > div {
+  display: flex;
+  padding: 10px 5px;
+  justify-content: space-between;
+  align-items: center;
+ }
+
+ .nav__links > div span {
+  color: black;
+  font-family: "Rowdies", sans-serif;
+  font-size: 1.8em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ }
+ /* 
+ .nav__links ul a::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  position: absolute;
+ } */
+
+ .nav__button[data-open="true"] + .nav__links {
+  animation: openMenu 500ms;
+  transform: translateX(0);
+ }
+
+ .nav__button[data-open="false"] + .nav__links {
+  transform: translateX(300px);
+  transition: 500ms;
+ }
+
+ @keyframes openMenu {
+  from {
+   transform: translateX(300px);
+  }
+  to {
+   transform: translateX(0);
+  }
  }
 }
