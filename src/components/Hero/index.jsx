@@ -19,6 +19,7 @@ export default function Hero() {
   fetchData();
  }, []); */
  }
+import data from "../../../dataFile.json";
 
  return (
   <div className={style.hero}>
@@ -41,14 +42,17 @@ export default function Hero() {
     <div className={style.hero__stats}>
      <div>
       <span>NaN</span>
+      <span>{data.materials}</span>
       <span>Matières</span>
      </div>
      <div>
       <span>NaN</span>
+      <span>{data.forms}</span>
       <span>Fiches</span>
      </div>
      <div>
       <span>NaN</span>
+      <span>{data.exercises}</span>
       <span>Exercices</span>
      </div>
     </div>
