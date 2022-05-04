@@ -15,31 +15,39 @@ export default function Line({ hover }) {
    </svg>
    <style jsx>
     {`
-     #line {
-      position: absolute;
-      bottom: -9px;
-      left: 0;
-      pointer-events: none;
-      fill: none;
-      stroke: #fff;
-      stroke-width: 1px;
+     @media screen and (max-width: 760px) {
+      #line {
+       display: none;
+       visibility: hidden;
+      }
      }
+     @media screen and (min-width: 760px) {
+      #line {
+       position: absolute;
+       bottom: -9px;
+       left: 0;
+       pointer-events: none;
+       fill: none;
+       stroke: #fff;
+       stroke-width: 1px;
+      }
 
-     #line path {
-      stroke-dasharray: 1;
-      stroke-dashoffset: ${hover ? 0 : 1};
+      #line path {
+       stroke-dasharray: 1;
+       stroke-dashoffset: ${hover ? 0 : 1};
 
-      transition: ${hover
-       ? null
-       : "stroke-dashoffset 0.6s cubic-bezier(0.7, 0, 0.3, 1)"};
+       transition: ${hover
+        ? null
+        : "stroke-dashoffset 0.6s cubic-bezier(0.7, 0, 0.3, 1)"};
 
-      transition-timing-function: ${hover
-       ? "cubic-bezier(0.8, 1, 0.7, 1);"
-       : null};
+       transition-timing-function: ${hover
+        ? "cubic-bezier(0.8, 1, 0.7, 1);"
+        : null};
 
-      transition-duration: ${hover ? "0.3s" : null};
+       transition-duration: ${hover ? "0.3s" : null};
 
-      transition: stroke-dashoffset 0.6s cubic-bezier(0.7, 0, 0.3, 1);
+       transition: stroke-dashoffset 0.6s cubic-bezier(0.7, 0, 0.3, 1);
+      }
      }
     `}
    </style>

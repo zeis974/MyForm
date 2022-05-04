@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
-import Line from "../svg/Line";
+import Line from "@/components/svg/Line";
 
 export default function CustomLink(props) {
  const [hover, setHover] = useState(false);

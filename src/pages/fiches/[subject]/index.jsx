@@ -8,7 +8,7 @@ export default function FormHandler({ posts }) {
  const router = useRouter();
  const { subject } = router.query;
 
- return <Form subject={subject} posts={posts} />;
+  return <Form subject={subject} posts={posts} />;
 }
 
 export const getStaticProps = async () => {

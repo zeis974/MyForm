@@ -1,15 +1,16 @@
 import style from "@/styles/Form.module.css";
 
-import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 import Illustration from "@/components/svg/Illustrations";
-import Tags from "@/components/Tags";
 import FormSearch from "@/components/FormSearch";
+import FormPinned from "@/components/FormPinned";
+import FormCard from "@/components/FormCard";
 
 export default function Form(props) {
- const data = props.posts;
+ const forms = props.posts;
  const router = useRouter();
  const { subject } = router.query;
  const [search, setSearch] = useState({
@@ -31,56 +32,57 @@ export default function Form(props) {
   });
  };
 
+ let capitalizeSubject = subject.charAt(0).toUpperCase() + subject.slice(1);
+
  return (
-  <div className={style.container}>
-   <div className={style.container__hero}>
-    <div>
-     <span className={style.container__title}>{props.subject}</span>
-     <p className={style.container__p}>
-      Des fiches sur tous les cours de {subject}, chaque fiche possède des
-      exercices corrigés et détaillés pour vous permettre de progresser
-     </p>
+  <>
+   <Head>
+    <title>{capitalizeSubject} | MyForm</title>
+   </Head>
+   <div className={style.container}>
+    <div className={style.container__hero}>
+     <div>
+      <span className={style.container__title}>{props.subject}</span>
+      <p className={style.container__p}>
+       Des fiches sur tous les cours de {subject}, chaque fiche possède des
+       exercices corrigés et détaillés pour vous permettre de progresser
+      </p>
+     </div>
+     <div className={style.container__illustration}>
+      <Illustration subject={subject} />
+     </div>
     </div>
-    <div className={style.container__illustration}>
-     <Illustration subject={subject} />
+    <div className={style.container__navbar}>
+     <FormSearch
+      placeholder="Rechercher"
+      handleSearchField={handleSearchField}
+      handleSearchTags={handleSearchTags}
+     />
     </div>
-   </div>
-   <div className={style.container__navbar}>
-    <FormSearch
-     placeholder="Rechercher"
-     handleSearchField={handleSearchField}
-     handleSearchTags={handleSearchTags}
-    />
-   </div>
-   <section className={style.container__card}>
-    {data
-     .filter((data) => {
-      if (search.tags) {
-       if (
-        data.subject.toLowerCase() === subject &&
-        data.title.toLowerCase().includes(search.field.toLowerCase()) &&
-        data.tags.includes("spécialité") == true
+    <section className={style.container__card}>
+     <FormPinned forms={forms} />
+     {forms
+      .filter((form) => {
+       if (search.tags) {
+        if (
+         form.subject.toLowerCase() === subject &&
+         form.title.toLowerCase().includes(search.field.toLowerCase()) &&
+         form.tags.includes("spécialité")
+        ) {
+         return form;
+        }
+       } else if (
+        form.subject.toLowerCase() === subject &&
+        form.title.toLowerCase().includes(search.field.toLowerCase())
        ) {
-        return data;
+        return form;
        }
-      } else if (
-       data.subject.toLowerCase() === subject &&
-       data.title.toLowerCase().includes(search.field.toLowerCase())
-      ) {
-       return data;
-      }
-     })
-     .map((post) => (
-      <div key={post.slug} className={style.card}>
-       <Link href={`/fiches/${props.subject}/${post.slug}`} prefetch={false}>
-        <a>
-         <h2>{post.title}</h2>
-        </a>
-       </Link>
-       <Tags tags={post.tags} />
-      </div>
-     ))}
-   </section>
-  </div>
+      })
+      .map((form) => (
+       <FormCard key={form.slug} {...form} />
+      ))}
+    </section>
+   </div>
+  </>
  );
 }
