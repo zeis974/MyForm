@@ -1,63 +1,43 @@
-import Link from "next/link";
+import style from "@/styles/Tags.module.css";
 
-export default function Tags({ tags }) {
- let formArr = ["maths", "physique", "i2d"];
+import Link from "next/link";
+import { useRouter } from "next/router";
+
+export default function Tags(props) {
+ const router = useRouter();
+ const { subject } = router.query;
 
  return (
-  <div className="container">
-   {tags.map((tag) => {
+  <div className={style.container} data-page={props.dataPage}>
+   {props.tags.map((tag) => {
     let isSpé = tag.includes("spécialité");
+    let isPinned = tag.includes("générique");
 
-    for (let i = 0; i < formArr.length; i++) {
-     if (tag.includes(formArr[i]) || isSpé) {
-      let prevTag = formArr[i];
-      let capitalizeTag = tag.charAt(0).toUpperCase() + tag.slice(1);
-
-      return (
-       <Link
-        href={isSpé ? `/fiches/${prevTag}?spé` : `/fiches/${tag}`}
-        key={tag}
-       >
-        <a className={`tag ${tag}`}>{capitalizeTag}</a>
-       </Link>
-      );
-     }
+    if (tag.includes(subject)) {
+     return (
+      <Link
+       href={isSpé ? "" : `/fiches/${tag}`}
+       data-page={"slug" ? router.query.slug != undefined : null}
+       key={tag}
+      >
+       <a className={style.tag} data-tag={tag}>
+        {tag}
+       </a>
+      </Link>
+     );
+    } else if (isPinned || isSpé) {
+     return (
+      <span
+       className={style.tag}
+       data-tag={tag}
+       data-page={"slug" ? router.query.slug != undefined : null}
+       key={tag}
+      >
+       {tag}
+      </span>
+     );
     }
    })}
-
-   <style jsx>{`
-    .container {
-     display: flex;
-     gap: 5px;
-     margin: 5px 0;
-    }
-
-    .tag {
-     position: relative;
-     z-index: 2;
-     text-transform: capitalize;
-     font-size: 0.8em;
-     font-weight: 600;
-     padding: 3px;
-     border-radius: 5px;
-    }
-
-    .tag.maths {
-     color: #116e5c;
-     background: #1abc9c4f;
-    }
-    .tag.physique {
-     color: #866137;
-     background: #ffbe764f;
-    }
-    .tag.i2d {
-     background: #e67e22;
-    }
-    .tag.spécialité {
-     color: #902ca4;
-     background: #e056fd4f;
-    }
-   `}</style>
   </div>
  );
 }
