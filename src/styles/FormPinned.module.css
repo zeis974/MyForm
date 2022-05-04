@@ -1,0 +1,59 @@
+.container {
+ display: grid;
+ grid-area: pinned;
+}
+
+.container__head {
+ display: flex;
+ justify-content: space-between;
+}
+
+.container__head span {
+ margin-bottom: 10px;
+ font-weight: 600;
+}
+
+.container__head svg {
+ cursor: pointer;
+}
+
+.container[data-open="open"] {
+ max-height: fit-content;
+}
+
+.container[data-open="close"] {
+ max-height: 25px;
+ overflow: hidden;
+}
+
+.container[data-open="open"] .container__head svg {
+ transform: rotate(0deg);
+ transition: transform 300ms;
+}
+
+.container[data-open="close"] .container__head svg {
+ transform: rotate(-180deg);
+ transition: transform 300ms;
+}
+
+.container__pinned {
+ display: inherit;
+ gap: 10px;
+ grid-template-columns: repeat(4, 1fr);
+ position: relative;
+ margin-bottom: 10px;
+}
+
+.container__pinned > div {
+ background: linear-gradient(
+  258deg,
+  rgba(110, 124, 255, 1) 0%,
+  rgba(166, 175, 255, 1) 100%
+ );
+}
+
+@media only screen and (max-width: 768px) {
+ .container__pinned {
+  grid-template-columns: auto;
+ }
+}
