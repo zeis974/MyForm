@@ -41,6 +41,16 @@
  background: #ffbe76b8;
 }
 
+.tag[data-tag="chimie"] {
+ color: #a22260;
+ background: #e843934f;
+}
+
+.container[data-page="slug"] .tag[data-tag="chimie"] {
+ color: #565049;
+ background: #ffbe76b8;
+}
+
 .tag[data-tag="i2d"] {
  background: #e67e22;
 }
@@ -60,12 +70,12 @@
  background: #e056fd4f;
 }
 
-.container[data-page="slug"] .tag[data-tag="générique"] {
- color: #4c3dc0;
- background: #d6d0ff7d;
-}
-
 .tag[data-tag="générique"] {
  color: #2e2286;
  background: #6c5ce77d;
+}
+
+.container[data-page="slug"] .tag[data-tag="générique"] {
+ color: #4c3dc0;
+ background: #d6d0ff7d;
 }

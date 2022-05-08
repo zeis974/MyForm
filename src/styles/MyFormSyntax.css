@@ -3,7 +3,6 @@ ul {
 }
 
 img[data-page="slug"] {
- width: 100%;
  max-width: 500px;
  margin: 20px 0;
 }
@@ -58,4 +57,8 @@ table[data-type="column"] tr td:last-child {
  justify-content: space-evenly;
  flex-wrap: wrap;
  padding: 5px;
+}
+
+.flex.column {
+ flex-direction: column;
 }
