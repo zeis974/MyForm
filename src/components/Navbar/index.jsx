@@ -82,16 +82,16 @@ export default function Navbar() {
     <hr className={style.intersect} />
     <ul>
      <li>
-      <CustomLink text="Exercices" path="exercices" noHover />
+      <CustomLink text="Exercices" path="exercices" />
      </li>
      <li>
-      <CustomLink text="Maths" path="fiches/maths" noHover />
+      <CustomLink text="Maths" path="fiches/maths" />
      </li>
      <li>
-      <CustomLink text="Physique-chimie" path="fiches/physique" noHover />
+      <CustomLink text="Physique-chimie" path="fiches/physique-chimie" />
      </li>
      <li>
-      <CustomLink text="I2D" path="fiches/i2d" noHover />
+      <CustomLink text="I2D" path="fiches/i2d" />
      </li>
     </ul>
    </div>

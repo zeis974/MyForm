@@ -12,11 +12,12 @@ export default function Tags(props) {
    {props.tags.map((tag) => {
     let isSpé = tag.includes("spécialité");
     let isPinned = tag.includes("générique");
+    let isPhysical = tag.includes("chimie") || tag.includes("physique");
 
-    if (tag.includes(subject)) {
+    if (tag.includes(subject) || isPhysical) {
      return (
       <Link
-       href={isSpé ? "" : `/fiches/${tag}`}
+       href={isSpé ? "" : `/fiches/${subject}`}
        data-page={"slug" ? router.query.slug != undefined : null}
        key={tag}
       >

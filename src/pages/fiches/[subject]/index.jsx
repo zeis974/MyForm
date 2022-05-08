@@ -24,7 +24,7 @@ export async function getStaticPaths() {
  return {
   paths: [
    { params: { subject: "maths" } },
-   { params: { subject: "physique" } },
+   { params: { subject: "physique-chimie" } },
    { params: { subject: "i2d" } },
   ],
   fallback: false,
