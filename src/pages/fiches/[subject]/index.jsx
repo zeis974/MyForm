@@ -8,7 +8,7 @@ export default function FormHandler({ posts }) {
  const router = useRouter();
  const { subject } = router.query;
 
- return <Form subject={subject} posts={posts} />;
+  return <Form subject={subject} posts={posts} />;
 }
 
 export const getStaticProps = async () => {
@@ -24,7 +24,7 @@ export async function getStaticPaths() {
  return {
   paths: [
    { params: { subject: "maths" } },
-   { params: { subject: "physique" } },
+   { params: { subject: "physique-chimie" } },
    { params: { subject: "i2d" } },
   ],
   fallback: false,

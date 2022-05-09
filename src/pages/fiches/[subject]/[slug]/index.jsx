@@ -6,18 +6,16 @@ import { MDXRemote } from "next-mdx-remote";
 import { getPost, getAllPosts } from "@/utils/mdxUtils";
 
 import FormHeader from "@/components/FormHeader";
+import Custom from "@/components/Custom";
 
 const components = {
- FormHeader,
+    Custom,
 };
 
 export default function FormPage({ source, frontMatter }) {
  return (
   <article className={style.container}>
-   <div className={style.container__header}>
-    <h1>{frontMatter.title}</h1>
-    <p>{frontMatter.description}</p>
-   </div>
+   <FormHeader frontMatter={frontMatter} />
    <MDXRemote components={components} {...source} />
   </article>
  );

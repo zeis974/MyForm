@@ -38,7 +38,7 @@ export default function Layout({ children }) {
     <meta rel="shortcut icon" href="/favicon.ico" />
     <link
      rel="preload"
-     href="/fonts/RowdiesRegular.woff2"
+     href="/assets/fonts/RowdiesRegular.woff2"
      as="font"
      crossOrigin=""
     />

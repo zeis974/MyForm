@@ -7,12 +7,12 @@
  display: flex;
  justify-content: space-around;
  align-items: center;
-
+ padding: 10px;
  margin-bottom: 20px;
 }
 
 .container__title {
- font-family: "Rowdies", sans-serif;
+ font-family: "Rowdies", serif;
  font-size: 3.5em;
  text-transform: uppercase;
  color: white;
@@ -38,41 +38,24 @@
  display: grid;
  gap: 10px;
  grid-template-columns: repeat(4, 1fr);
- margin: 25px 10px;
-}
+ margin: 10px;
 
-.container__card .card {
- position: relative;
- padding: 5px;
- border: 1px solid rgb(160, 160, 160);
- background: white;
- border-radius: 8px;
-}
-
-.container__card .card > a::before {
- content: "";
- position: absolute;
- inset: 0;
- width: 100%;
- height: 100%;
- border-radius: 5px;
- z-index: 1;
-}
-
-.container__card .card h2 {
- font-size: 1.4em;
+ grid-template-areas:
+  "pinned pinned pinned pinned"
+  ". . . .";
 }
 
 .container__illustration {
  display: flex;
  align-items: center;
  justify-content: center;
+ width: 600px;
  height: 415px;
 }
 
 /* Responsive */
 
-@media screen and (max-width: 500px) {
+@media only screen and (max-width: 500px) {
  .container__title {
   font-size: 2.5em;
  }
@@ -93,5 +76,8 @@
  .container__card {
   grid-template-columns: auto;
   grid-template-rows: auto;
+  grid-template-areas:
+   "pinned"
+   ".";
  }
 }

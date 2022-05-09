@@ -4,6 +4,7 @@
  max-width: var(--maxWidth);
  margin: 0 auto;
  padding: 10px;
+
  display: flex;
  align-items: center;
  justify-content: space-between;
@@ -12,7 +13,7 @@
 .nav__logo {
  font-size: 2em;
  color: white;
- font-family: "Rowdies";
+ font-family: "Rowdies", serif;
 }
 
 .nav__links ul {
@@ -57,18 +58,41 @@
 
 /* Intersect */
 
+.nav__button,
+.nav__links > div,
 .intersect {
- width: 90%;
- height: 2px;
- margin: 0 auto;
- background: #e1e1e1;
+ display: none;
+ pointer-events: none;
+ visibility: hidden;
 }
 
 /* Responsive */
 
-@media screen and (max-width: 500px) {
+@media only screen and (max-width: 768px) {
  .nav {
-  padding: 10px;
+  position: sticky;
+  top: 0;
+  background: linear-gradient(
+   90deg,
+   rgb(131 143 255) 0%,
+   rgb(153 163 255) 100%
+  );
+  box-shadow: 0 10px #8f9aff1f;
+  z-index: 3;
+  font-family: "Rowdies", serif;
+ }
+
+ .intersect {
+  width: 90%;
+  height: 2px;
+  margin: 0 auto;
+  background: #e1e1e1;
+ }
+
+ .nav__featureBtn {
+  pointer-events: none;
+  visibility: hidden;
+  display: none;
  }
 
  .nav__links {
@@ -92,17 +116,19 @@
   display: block;
  }
 
- .nav__featureBtn {
-  pointer-events: none;
-  visibility: hidden;
-  display: none;
- }
-
  .nav__button {
   width: 60px;
   height: 60px;
   background: transparent;
   border: none;
+ }
+
+ .nav__button,
+ .nav__links > div,
+ .intersect {
+  display: block;
+  visibility: visible;
+  pointer-events: all;
  }
 
  .nav__button[data-open="true"]::before {
@@ -135,20 +161,12 @@
 
  .nav__links > div span {
   color: black;
-  font-family: "Rowdies", sans-serif;
+  font-family: "Rowdies", serif;
   font-size: 1.8em;
   display: flex;
   justify-content: space-between;
   align-items: center;
  }
- /* 
- .nav__links ul a::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  background-color: red;
-  position: absolute;
- } */
 
  .nav__button[data-open="true"] + .nav__links {
   animation: openMenu 500ms;
@@ -158,6 +176,10 @@
  .nav__button[data-open="false"] + .nav__links {
   transform: translateX(300px);
   transition: 500ms;
+ }
+
+ .nav__button + .nav__links {
+  transform: translateX(300px);
  }
 
  @keyframes openMenu {
