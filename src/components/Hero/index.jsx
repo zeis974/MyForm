@@ -20,9 +20,7 @@ export default function Hero() {
      <div>
       <SearchIllustration />
       <Link href="/faq">
-       <a>
-        <span>MyForm c&apos;est quoi ? </span>
-       </a>
+       <span>MyForm c&apos;est quoi ? </span>
       </Link>
      </div>
     </div>

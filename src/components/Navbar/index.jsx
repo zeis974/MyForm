@@ -39,8 +39,8 @@ export default function Navbar() {
  return (
   <nav className={style.nav} data-open="false">
    <span>
-    <Link href="/">
-     <a className={style.nav__logo}>MyForm</a>
+    <Link href="/" className={style.nav__logo}>
+     MyForm
     </Link>
    </span>
    <button
@@ -96,9 +96,7 @@ export default function Navbar() {
     </ul>
    </div>
    <div className={style.nav__featureBtn}>
-    <Link href="/faq">
-     <a>FAQ</a>
-    </Link>
+    <Link href="/faq">FAQ</Link>
    </div>
   </nav>
  );

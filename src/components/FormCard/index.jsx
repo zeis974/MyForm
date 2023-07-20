@@ -14,9 +14,7 @@ export default function FormCard(props) {
     href={`/fiches/${props.subject.toLowerCase()}/${props.slug}`}
     prefetch={false}
    >
-    <a>
      <h2>{props.title}</h2>
-    </a>
    </Link>
    <Tags tags={props.tags} />
   </div>

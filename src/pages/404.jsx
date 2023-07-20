@@ -41,14 +41,8 @@ export default function Custom404() {
       t&apos;intéresseras peut-être :
      </p>
      <div>
-      <Link href="/">
-       <a>Page d&apos;accueil</a>
-      </Link>
-      {form ? (
-       <Link href={`/fiches/${form}`}>
-        <a>Fiches de {form}</a>
-       </Link>
-      ) : null}
+      <Link href="/">Page d&apos;accueil</Link>
+      {form && <Link href={`/fiches/${form}`}>Fiches de {form}</Link>}
      </div>
     </div>
     <div className={style.container__illustration}>

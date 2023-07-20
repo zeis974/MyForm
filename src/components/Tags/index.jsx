@@ -19,11 +19,11 @@ export default function Tags(props) {
       <Link
        href={isSpé ? "" : `/fiches/${subject}`}
        data-page={"slug" ? router.query.slug != undefined : null}
+       className={style.tag}
+       data-tag={tag}
        key={tag}
       >
-       <a className={style.tag} data-tag={tag}>
-        {tag}
-       </a>
+       {tag}
       </Link>
      );
     } else if (isPinned || isSpé) {
