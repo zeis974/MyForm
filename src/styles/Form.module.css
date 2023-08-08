@@ -12,7 +12,7 @@
 }
 
 .container__title {
- font-family: "Rowdies", serif;
+ font-family: var(--rowdies), serif;
  font-size: 3.5em;
  text-transform: uppercase;
  color: white;
@@ -38,7 +38,7 @@
  display: grid;
  gap: 10px;
  grid-template-columns: repeat(4, 1fr);
- margin: 10px;
+ padding: 10px;
 
  grid-template-areas:
   "pinned pinned pinned pinned"
@@ -51,6 +51,16 @@
  justify-content: center;
  width: 600px;
  height: 415px;
+}
+
+.container__illustration[data-illustration="maths"] {
+ background: url("/assets/MathsIllustration.svg") no-repeat center;
+}
+.container__illustration[data-illustration="physique-chimie"] {
+ background: url("/assets/PhysiqueIllustration.svg") no-repeat center;
+}
+.container__illustration[data-illustration="i2d"] {
+ background: url("/assets/I2dIllustration.svg") no-repeat center;
 }
 
 /* Responsive */

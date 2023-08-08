@@ -1,9 +1,8 @@
 .container {
  max-width: var(--maxWidth);
  margin: 0 auto;
- padding: 0 10px;
+ padding: 0 20px;
 
- height: calc(100vh - 70px);
  display: flex;
  justify-content: center;
  align-items: center;
@@ -18,23 +17,6 @@
  margin-top: 15px;
 }
 
-.container__text > div a {
- min-width: 175px;
- max-width: 175px;
- background: white;
- box-shadow: 5px 5px #303030;
- border: 1px solid #303030;
- border-radius: 8px;
- padding: 10px;
- font-size: 18px;
- font-weight: 600;
- margin: 5px;
-}
-
-.container__text > div a:hover {
- box-shadow: 3px 3px #303030;
-}
-
 .container__text p {
  font-size: 18px;
  max-width: 600px;
@@ -42,13 +24,13 @@
  line-height: 25px;
 }
 
-.container > div {
- display: flex;
- justify-content: center;
+.container__btn {
+ background: green;
+ width: 100%;
 }
 
-.container__text span {
- font-family: "Rowdies", serif;
+.container__text > span {
+ font-family: var(--rowdies), serif;
  color: white;
  font-weight: 600;
  font-size: 2.75em;
@@ -57,6 +39,8 @@
 .container__illustration {
  width: 600px;
  height: 500px;
+ background: url("/assets/_404Illustration.svg") center no-repeat;
+ background-size: contain;
 }
 
 /* Responsive */
@@ -64,14 +48,20 @@
 @media screen and (width < 500px) {
  .container {
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 10px;
  }
 
  .container__illustration {
   width: 300px;
+  height: 300px;
  }
 
- .container__text {
-  margin-top: 50px;
+ .container__btn {
+  background: blue;
+  width: 100vw;
  }
 
  .container__text span {

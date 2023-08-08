@@ -1,4 +1,4 @@
-.container {
+.tag__container {
  display: flex;
  gap: 5px;
  margin: 7px 0;
@@ -17,7 +17,7 @@
  border-radius: 5px;
 }
 
-.container[data-page="slug"] .tag {
+.tag__container[data-page="slug"] .tag {
  font-size: 1em;
 }
 
@@ -26,7 +26,7 @@
  background: #1abc9c4f;
 }
 
-.container[data-page="slug"] .tag[data-tag="maths"] {
+.tag__container[data-page="slug"] .tag[data-tag="maths"] {
  color: #043e32;
  background: #1abc9cb0;
 }
@@ -36,7 +36,7 @@
  background: #ffbe764f;
 }
 
-.container[data-page="slug"] .tag[data-tag="physique"] {
+.tag__container[data-page="slug"] .tag[data-tag="physique"] {
  color: #565049;
  background: #ffbe76b8;
 }
@@ -46,7 +46,7 @@
  background: #e843934f;
 }
 
-.container[data-page="slug"] .tag[data-tag="chimie"] {
+.tag__container[data-page="slug"] .tag[data-tag="chimie"] {
  color: #565049;
  background: #ffbe76b8;
 }
@@ -55,12 +55,12 @@
  background: #e67e22;
 }
 
-.container[data-page="slug"] .tag[data-tag="i2d"] {
+.tag__container[data-page="slug"] .tag[data-tag="i2d"] {
  color: #565049;
  background: #ffbe76b8;
 }
 
-.container[data-page="slug"] .tag[data-tag="spécialité"] {
+.tag__container[data-page="slug"] .tag[data-tag="spécialité"] {
  color: #565049;
  background: #ffbe76b8;
 }
@@ -75,7 +75,7 @@
  background: #6c5ce77d;
 }
 
-.container[data-page="slug"] .tag[data-tag="générique"] {
+.tag__container[data-page="slug"] .tag[data-tag="générique"] {
  color: #4c3dc0;
  background: #d6d0ff7d;
 }
