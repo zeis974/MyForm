@@ -26,7 +26,7 @@ export default function NotFound() {
  useEffect(() => {
   let formArr = ["maths", "physique-chimie", "i2d"];
 
-  if (pathname.includes("/fiches")) {
+  if (pathname?.includes("/fiches")) {
    formArr.forEach((form) => {
     if (pathname.includes(form)) {
      setForm(form);
