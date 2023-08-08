@@ -1,11 +1,23 @@
-export default function FormSearch(props) {
+import { ChangeEvent } from "react";
+
+interface FormSearchProps {
+ placeholder: string;
+ handleSearchField: (data: string) => void;
+ handleSpeCheck: (data: boolean) => void;
+}
+
+export default function FormSearch({
+ placeholder,
+ handleSearchField,
+ handleSpeCheck,
+}: FormSearchProps) {
  return (
   <>
    <input
-    placeholder={props.placeholder}
+    placeholder={placeholder}
     type="text"
-    onChange={(e) => {
-     props.handleSearchField(e.target.value);
+    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+     handleSearchField(e.target.value);
     }}
    />
    <div className="checkbox">
@@ -13,11 +25,12 @@ export default function FormSearch(props) {
      type="checkbox"
      id="spé"
      name="spé"
-     onChange={(e) => props.handleSearchTags(e.target.checked)}
+     onChange={(e: ChangeEvent<HTMLInputElement>) =>
+      handleSpeCheck(e.target.checked)
+     }
     />
     <label htmlFor="spé">Spécialité</label>
    </div>
-
    <style jsx>{`
     input {
      height: 40px;

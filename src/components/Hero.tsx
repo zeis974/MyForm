@@ -2,10 +2,9 @@ import style from "@/styles/Hero.module.css";
 
 import Link from "next/link";
 
-import SearchIllustration from "@/components/svg/SearchIllustration";
-import HeroIllustration from "@/components/svg/HeroIllustration";
+import SearchIllustration from "@/components/SearchIllustration";
 
-import data from "../../../dataFile.json";
+import data from "../../dataFile.json";
 
 export default function Hero() {
  return (
@@ -20,9 +19,7 @@ export default function Hero() {
      <div>
       <SearchIllustration />
       <Link href="/faq">
-       <a>
-        <span>MyForm c&apos;est quoi ? </span>
-       </a>
+       <span>MyForm c&apos;est quoi ? </span>
       </Link>
      </div>
     </div>
@@ -41,9 +38,7 @@ export default function Hero() {
      </div>
     </div>
    </div>
-   <div className={style.hero__illustrations}>
-    <HeroIllustration />
-   </div>
+   <div className={style.hero__illustrations}></div>
   </div>
  );
 }

@@ -1,18 +1,26 @@
+"use client";
+
 import style from "@/styles/FormPinned.module.css";
 
 import { useState } from "react";
 
+import { Post } from "@/utils/mdxUtils";
+
 import FormCard from "@/components/FormCard";
 
-export default function FormPinned({ forms }) {
+export default function FormPinned({ forms }: { forms: Post[] }) {
  const [open, setOpen] = useState(true);
+
+ const toggleState = () => {
+  setOpen(!open);
+ };
 
  return (
   <div className={style.container} data-open={open ? "open" : "close"}>
    <div className={style.container__head}>
     <span>Pinned</span>
     <svg
-     onClick={() => setOpen(!open)}
+     onClick={toggleState}
      width="24"
      height="24"
      viewBox="0 0 24 24"
@@ -34,9 +42,7 @@ export default function FormPinned({ forms }) {
    <div className={style.container__pinned}>
     {forms
      .filter((form) => {
-      if (form.tags.includes("générique")) {
-       return form;
-      }
+      if (form.tags.includes("générique")) return form;
      })
      .map((form) => (
       <FormCard key={form.slug} {...form} />
