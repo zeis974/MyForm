@@ -13,62 +13,50 @@
 .nav__logo {
  font-size: 2em;
  color: white;
- font-family: "Rowdies", serif;
+ font-family: var(--rowdies), serif;
 }
 
 .nav__links ul {
  display: flex;
 }
 
+.nav__links ul li {
+ margin: 0 15px;
+}
+
 .nav__links a {
  color: white;
- margin: 0 10px;
- font-weight: 500;
 
+ font-weight: 500;
  position: relative;
  white-space: nowrap;
+ transition: 250ms;
 }
 
-.nav__links a::before,
-.nav__links a::after {
- position: absolute;
- width: 100%;
- height: 1px;
- top: 100%;
- left: 0;
- pointer-events: none;
+.nav__links a:hover {
+ color: #6170f9;
 }
 
-.nav__links a::before {
- content: "";
- display: none;
-}
+.nav__featureBtn {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 10px;
 
-.nav__featureBtn a {
- color: var(--blue);
  font-weight: 500;
  background: white;
- padding: 15px 35px;
+ padding: 5px 10px;
  border-radius: 8px;
 }
 
-.icons__close {
- margin: 0 10px;
-}
-
-/* Intersect */
-
-.nav__button,
-.nav__links > div,
-.intersect {
+.burger__icon {
  display: none;
- pointer-events: none;
  visibility: hidden;
 }
 
 /* Responsive */
 
-@media only screen and (max-width: 768px) {
+@media screen and (width < 768px) {
  .nav {
   position: sticky;
   top: 0;
@@ -79,24 +67,11 @@
   );
   box-shadow: 0 10px #8f9aff1f;
   z-index: 3;
-  font-family: "Rowdies", serif;
- }
-
- .intersect {
-  width: 90%;
-  height: 2px;
-  margin: 0 auto;
-  background: #e1e1e1;
- }
-
- .nav__featureBtn {
-  pointer-events: none;
-  visibility: hidden;
-  display: none;
  }
 
  .nav__links {
   z-index: 3;
+  position: absolute;
  }
 
  .nav__links ul {
@@ -116,22 +91,20 @@
   display: block;
  }
 
- .nav__button {
-  width: 60px;
-  height: 60px;
-  background: transparent;
-  border: none;
+ .nav__featureBtn {
+  display: none;
+  visibility: hidden;
  }
 
- .nav__button,
- .nav__links > div,
- .intersect {
+ .burger__icon {
   display: block;
   visibility: visible;
   pointer-events: all;
- }
 
- .nav__button[data-open="true"]::before {
+  border: none;
+  background: none;
+ }
+ .burger__icon[data-open="true"]::before {
   content: "";
   position: absolute;
   background: #0f0e0e8c;
@@ -141,7 +114,7 @@
   z-index: 2;
  }
 
- .nav__button:not([data-type="close"]) + .nav__links {
+ .burger__icon:not([data-type="close"]) + .nav__links {
   position: fixed;
   top: 0;
   right: 0;
@@ -159,26 +132,17 @@
   align-items: center;
  }
 
- .nav__links > div span {
-  color: black;
-  font-family: "Rowdies", serif;
-  font-size: 1.8em;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
- }
-
- .nav__button[data-open="true"] + .nav__links {
+ .burger__icon[data-open="true"] + .nav__links {
   animation: openMenu 500ms;
   transform: translateX(0);
  }
 
- .nav__button[data-open="false"] + .nav__links {
+ .burger__icon[data-open="false"] + .nav__links {
   transform: translateX(300px);
   transition: 500ms;
  }
 
- .nav__button + .nav__links {
+ .burger__icon + .nav__links {
   transform: translateX(300px);
  }
 
