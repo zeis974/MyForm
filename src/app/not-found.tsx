@@ -12,13 +12,6 @@ export const metadata: Metadata = {
  title: "404 - Page Introuvable | MyForm",
 };
 
-export async function generateMetadata(props: any) {
- return {
-  title: `Animal id ${props.params.slug} not found`,
-  description: `There is no animal with id "${props.params.slug}"`,
- };
-}
-
 export default function NotFound() {
  const pathname = usePathname();
  const [form, setForm] = useState("");
