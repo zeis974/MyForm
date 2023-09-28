@@ -3,8 +3,8 @@ export const dynamicParams = false;
 import style from "@/styles/FormPage.module.css";
 
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { serialize } from "next-mdx-remote/serialize";
 import { Metadata } from "next";
+import { PropsWithChildren } from "react";
 
 import { getPost, getAllPosts } from "@/utils/mdxUtils";
 import { FrontMatter } from "@/types/frontMatter";
@@ -15,7 +15,6 @@ type Params = {
  params: { slug: string };
 };
 
-
 export async function generateMetadata({
  params: { slug },
 }: Params): Promise<Metadata> {
@@ -24,25 +23,26 @@ export async function generateMetadata({
  };
 }
 
+const component = {
+ Custom: ({ children }: PropsWithChildren) => <h1>{children}</h1>,
+};
+
 export default async function FormPage({ params: { slug } }: Params) {
  const { source, frontMatter } = await getPostData(slug);
 
  return (
   <article className={style.container}>
    <FormHeader frontMatter={frontMatter} />
-   <MDXRemote source={source} />
+   <MDXRemote source={source} components={{ ...component }} />
   </article>
  );
 }
 
 async function getPostData(slug: string) {
  const { content, data } = getPost(slug);
- const mdxSource = await serialize(content, {
-  scope: data,
- });
 
  return {
-  source: mdxSource,
+  source: content,
   frontMatter: data as FrontMatter,
  };
 }
