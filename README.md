@@ -1,6 +1,6 @@
 <img src=".github/assets/banner.svg" />
 <p align="center">
-    <a href="https//myform.zeis.dev">myform.zeis.dev</a>
+    <a href="https://myform.zeis.dev">myform.zeis.dev</a>
 </p>
 
 ## What is MyForm ?
