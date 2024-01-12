@@ -3,7 +3,8 @@
   "version": "2.1.0",
   "private": true,
   "homepage": "https://github.com/zeis974/MyForm#readme",
-  "author": "zeis974",
+  "license": "MIT",
+  "author": "zeis974 <hi@zeis.dev>",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
