@@ -34,13 +34,19 @@ function getPostItems(filePath: string, fields: string[]): Post {
  return items;
 }
 
-export function getAllPosts(fields: string[]): Post[] {
- const filePaths = getPostsFilePaths();
+export async function getAllPosts(fields: string[]): Promise<Post[]> {
+  const filePaths = getPostsFilePaths()
 
- const posts: Post[] = filePaths
-  .map((filePath) => getPostItems(filePath, fields))
-  .sort((post1, post2) => (post1.date > post2.date ? 1 : -1));
- return posts;
+  let posts: Post[] = []
+
+  for (let filePath of filePaths) {
+    const post = getPostItems(filePath, fields)
+    posts.push(post)
+  }
+
+  posts.sort((post1, post2) => (post1.date > post2.date ? 1 : -1))
+
+  return posts
 }
 
 export function getPost(slug: string): {
