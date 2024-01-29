@@ -17,7 +17,7 @@ The website renders local `mdx files` and builds pages statically based on the f
 
 ## Requirements
 
-- Install [NodeJS (>18)](https://nodejs.org/en)
+- Install [NodeJS (>20)](https://nodejs.org/en)
 - Install pnpm ([easy installation using corepack](https://pnpm.io/installation#using-corepack))
 
 ## Installation
@@ -35,3 +35,8 @@ pnpm dev
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+
+## License
+
+This project is licensed under the [MIT](https://choosealicense.com/licenses/mit/) license 
