@@ -34,11 +34,15 @@ export const Content = styled.div`
 export const HeroButton = styled.div`
   display: flex;
   align-items: center;
-  margin: 10px 0;
+  gap: 10px;
 
   & > a {
     color: white;
     text-decoration: underline;
+  }
+
+  @media screen and (width < t("breakpoints.md")) {
+    justify-content: center;
   }
 `
 
@@ -76,7 +80,7 @@ export const HeroIllustration = styled.div`
   height: 300px;
 
   @media screen and (width < t("breakpoints.md")) {
-    margin: 0 auto;
-    width: 300px;
+    display: none;
+    visibility: hidden;
   }
 `
