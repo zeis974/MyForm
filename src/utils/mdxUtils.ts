@@ -1,37 +1,30 @@
-import fs from "fs";
-import matter from "gray-matter";
-import { join } from "path";
+import fs from "fs"
+import matter from "gray-matter"
+import { join } from "path"
 
-const POSTS_PATH = join(process.cwd(), "_forms");
+import { Post } from "../types"
 
-export interface Post {
- title: string;
- subject: string;
- slug: string;
- date: string;
- description: string;
- tags: string[];
-}
+const POSTS_PATH = join(process.cwd(), "_forms")
 
 function getPostsFilePaths(): string[] {
- return fs.readdirSync(POSTS_PATH).filter((path) => /\.mdx?$/.test(path));
+  return fs.readdirSync(POSTS_PATH).filter((path) => /\.mdx?$/.test(path))
 }
 
 function getPostItems(filePath: string, fields: string[]): Post {
- const slug = filePath.replace(/\.mdx?$/, "");
+  const slug = filePath.replace(/\.mdx?$/, "")
 
- const { data, content } = getPost(slug);
+  const { data } = getPost(slug)
 
- const items: Post = {
-  title: data.title || "",
-  subject: data.subject || "",
-  slug: slug,
-  date: data.date || "",
-  description: data.description || "",
-  tags: data.tags || [],
- };
+  const items: Post = {
+    title: data.title || "",
+    subject: data.subject || "",
+    slug: slug,
+    date: data.date || "",
+    description: data.description || "",
+    tags: data.tags || [],
+  }
 
- return items;
+  return items
 }
 
 export async function getAllPosts(fields: string[]): Promise<Post[]> {
@@ -50,11 +43,12 @@ export async function getAllPosts(fields: string[]): Promise<Post[]> {
 }
 
 export function getPost(slug: string): {
- data: { [key: string]: any };
- content: string;
+  data: { [key: string]: any }
+  content: string
 } {
- const fullPath = join(POSTS_PATH, `${slug}.mdx`);
- const fileContents = fs.readFileSync(fullPath, "utf-8");
- const { data, content } = matter(fileContents);
- return { data, content };
+  const fullPath = join(POSTS_PATH, `${slug}.mdx`)
+  const fileContents = fs.readFileSync(fullPath, "utf-8")
+  const { data, content } = matter(fileContents)
+
+  return { data, content }
 }
