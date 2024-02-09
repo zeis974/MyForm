@@ -8,13 +8,16 @@ export type Tags =
   | "maths"
   | "générique"
 
-export interface Post {
+export interface FrontMatter {
   title: string
   subject: Subject
-  slug: string
-  date: Date
   description: string
   tags: Tags[]
+}
+
+export interface Post extends FrontMatter {
+  slug: string
+  date: Date
 }
 
 export interface SubjectTypes {
