@@ -30,12 +30,9 @@ function getPostItems(filePath: string, fields: string[]): Post {
 export async function getAllPosts(fields: string[]): Promise<Post[]> {
   const filePaths = getPostsFilePaths()
 
-  let posts: Post[] = []
-
-  for (let filePath of filePaths) {
-    const post = getPostItems(filePath, fields)
-    posts.push(post)
-  }
+  const posts = await Promise.all(
+    filePaths.map((filePath) => getPostItems(filePath, fields))
+  )
 
   posts.sort((post1, post2) => (post1.date > post2.date ? 1 : -1))
 
