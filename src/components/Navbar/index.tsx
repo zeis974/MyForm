@@ -47,9 +47,9 @@ export default function Navbar() {
         </svg>
       </Burger>
       <NavLinks data-open={open} ref={navRef}>
-        {links.map((link, index) => (
-          <li key={index}>
-            <Link href={`/fiches/${link.path}`}>{link.text}</Link>
+        {links.map(({ text, path }) => (
+          <li key={text.toLowerCase()}>
+            <Link href={`/fiches/${path}`}>{text}</Link>
           </li>
         ))}
       </NavLinks>

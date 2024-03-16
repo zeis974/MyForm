@@ -43,14 +43,24 @@ export const NavLinks = styled.ul`
     }
   }
 
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   @media screen and (width < t("breakpoints.md")) {
     display: none;
 
     &[data-open="true"] {
-      display: block;
-      justify-content: center;
-      position: absolute;
+      display: flex;
       flex-direction: column;
+      justify-content: center;
+      animation: fadeIn 300ms;
+      position: absolute;
       width: 80%;
       height: 100vh;
       background: white;
@@ -60,6 +70,7 @@ export const NavLinks = styled.ul`
       & > li {
         background-color: #3498db;
         margin: 5px;
+        padding: 10px;
         border-radius: 5px;
       }
 
@@ -71,17 +82,17 @@ export const NavLinks = styled.ul`
 `
 
 export const Burger = styled.button`
-  display: none;
-  visibility: hidden;
+display: none;
+visibility: hidden;
 
-  @media screen and (width < t("breakpoints.md")) {
-    display: block;
-    visibility: visible;
-    pointer-events: all;
+@media screen and (width < t("breakpoints.md")) {
+  display: block;
+  visibility: visible;
+  pointer-events: all;
 
-    border: none;
-    background: none;
-  }
+  border: none;
+  background: none;
+}
 `
 
 export const FeatureBtn = styled.span`
@@ -91,13 +102,13 @@ export const FeatureBtn = styled.span`
   border-radius: 8px;
 
   & > a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-  @media screen and (width < t("breakpoints.md")) {
-    display: none;
-    visibility: hidden;
-  }
+@media screen and (width < t("breakpoints.md")) {
+  display: none;
+  visibility: hidden;
+}
 `
