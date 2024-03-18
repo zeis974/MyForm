@@ -1,39 +1,48 @@
 *,
 ::before,
 ::after {
- box-sizing: border-box;
- margin: 0;
- padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
- font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-  Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", serif;
- height: 100vh;
- background: url("/assets/background.svg") no-repeat;
-}
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
-:root {
- --blue: #5162ff;
- --black: #0b053d;
- --maxWidth: 1260px;
-}
+  &:not(div[data-bg]) {
+    background: linear-gradient(
+      90deg,
+      rgb(131 143 255) 0%,
+      rgb(153 163 255) 100%
+    );
+  }
 
-a {
- color: inherit;
- text-decoration: none;
-}
-
-li {
- list-style-type: none;
+  &:has(div[data-bg]) {
+    width: 100%;
+    height: 100dvh;
+    background: url("/assets/background.svg") no-repeat;
+  }
 }
 
 @media screen and (width < 768px) {
- body {
-  background: linear-gradient(
-   90deg,
-   rgb(131 143 255) 0%,
-   rgb(153 163 255) 100%
-  );
- }
+  body {
+    &:has(div[data-bg]) {
+      overflow-y: hidden;
+      background: linear-gradient(
+        90deg,
+        rgb(131 143 255) 0%,
+        rgb(153 163 255) 100%
+      );
+    }
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
 }
