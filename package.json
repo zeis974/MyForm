@@ -13,8 +13,8 @@
   },
   "dependencies": {
     "@kuma-ui/core": "1.5.7",
-    "next": "14.2.3",
-    "next-mdx-remote": "4.4.1",
+    "next": "14.2.4",
+    "next-mdx-remote": "5.0.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "sharp": "^0.33.4",
@@ -22,13 +22,13 @@
   },
   "devDependencies": {
     "@kuma-ui/next-plugin": "1.3.1",
-    "@types/node": "^20.12.12",
+    "@types/node": "^20.14.8",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "eslint": "8.57.0",
-    "eslint-config-next": "14.2.3",
+    "eslint-config-next": "14.2.4",
     "gray-matter": "4.0.3",
-    "typescript": "5.4.5"
+    "typescript": "5.5.2"
   },
   "engines": {
     "node": ">=20",
